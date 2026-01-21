@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Wann war das?</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- <svg style="display: none">
+        <symbol id="unmute-icon" viewBox="0 0 24 24">
+          <polygon fill="white" points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+          <path
+            fill="none"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"
+          />
+        </symbol>
+        <symbol id="mute-icon" viewBox="0 0 24 24">
+          <polygon fill="white" points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+          <line
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            x1="23"
+            y1="9"
+            x2="17"
+            y2="15"
+          />
+          <line
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            x1="17"
+            y1="9"
+            x2="23"
+            y2="15"
+          />
+        </symbol>
+      </svg> -->
+      <div class="photo-container" id="photoContainer">
+        <div class="round-badge">Runde <span id="currentRound">1</span>/5</div>
+        <div class="header">
+          <h1>Wann war das?</h1>
+          <div class="score-display">
+            <span id="currentScore">0</span> Punkte
+          </div>
+        </div>
+      </div>
+
+      <div class="content-area" id="contentArea">
+        <div class="input-group">
+          <div class="input-label">
+            <span class="label-text">📅 Wann war das?</span>
+            <span class="year-display" id="yearDisplay">1962</span>
+          </div>
+          <input
+            type="range"
+            id="yearSlider"
+            min="1900"
+            max="2025"
+            value="1962"
+          />
+          <div class="range-labels">
+            <span>1900</span>
+            <span>2025</span>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <div class="input-label">📍 Ort?</div>
+          <div class="location-input-wrapper">
+            <input
+              type="text"
+              id="locationInput"
+              placeholder="Stadt eingeben..."
+            />
+            <div class="suggestions" id="suggestions"></div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" onclick="submitGuess()">
+          Antwort abgeben
+        </button>
+      </div>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
+</html>

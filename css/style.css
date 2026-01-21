@@ -1,0 +1,620 @@
+/* --- 1. CORE LAYOUT & CONTAINER --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container {
+  width: 400px;
+  height: 400px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* --- 2. PHOTO CONTAINER & ASSETS --- */
+.photo-container {
+  width: 100%;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Portrait Mode Logic: Blurred background with contained image on top */
+.photo-container.portrait-mode::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: inherit;
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px);
+  transform: scale(1.1);
+  z-index: 0;
+}
+
+.photo-container.portrait-mode::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: inherit;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.round-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #333;
+  z-index: 2;
+}
+
+.header {
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 2;
+  position: relative;
+}
+
+.header h1 {
+  display: none; /* Hidden as per previous instruction */
+}
+
+.score-display {
+  color: #2196f3;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-right: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 11px;
+  position: relative;
+  left: 320px;
+}
+
+#quelle {
+  position: relative;
+  top: 113px;
+  left: 358px;
+  font-size: 6pt;
+  rotate: -90deg;
+}
+
+#quelle p {
+  color: #ffffff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* .mute-btn {
+  position: absolute;
+  top: 41.5px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border: none;
+  cursor: pointer;
+  padding: 3px 5px;
+  color: #fff;
+  z-index: 5;
+  border-radius: 50%;
+  transition: all 200ms ease;
+  backdrop-filter: blur(4px);
+} */
+
+/* --- 3. INPUTS & SLIDER FEEDBACK --- */
+.content-area {
+  flex: 1;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.input-group {
+  margin-bottom: 12px;
+}
+
+.input-label {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 6px;
+  font-size: 12px;
+}
+
+.year-display {
+  grid-column: 2;
+  font-size: 16px;
+  color: #2196f3;
+  font-weight: bold;
+  background: #e3f2fd;
+  padding: 2px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+/* Mobile Feedback: Highlight label when interacting with slider */
+.input-group:focus-within .year-display,
+.input-group:active .year-display {
+  transform: scale(1.2);
+  background: #2196f3;
+  color: white;
+  box-shadow: 0 4px 10px rgba(33, 150, 243, 0.3);
+}
+
+input[type="range"] {
+  -webkit-appearance: none;  /* Safari/Chrome/Legacy */
+  -moz-appearance: none;     /* Older Firefox */
+  appearance: none;          /* Standard */
+  width: 100%;
+  height: 5px;
+  border-radius: 3px;
+  background: #e3f2fd;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Styled Slider Thumb with Arrows */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;  /* Safari/Chrome/Legacy */
+  -moz-appearance: none;     /* Older Firefox */
+  appearance: none;          /* Standard */
+  width: 32px;
+  height: 20px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 20"><text x="0" y="15" fill="%232196f3" font-size="14" font-weight="bold">❮</text><circle cx="20" cy="10" r="6" fill="%232196f3"/><text x="32" y="15" fill="%232196f3" font-size="14" font-weight="bold">❯</text></svg>') no-repeat center;
+  cursor: pointer;
+  animation: thumbPulse 2s infinite ease-in-out;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 32px;
+  height: 20px;
+  border: none;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 20"><text x="0" y="15" fill="%232196f3" font-size="14" font-weight="bold">❮</text><circle cx="20" cy="10" r="6" fill="%232196f3"/><text x="32" y="15" fill="%232196f3" font-size="14" font-weight="bold">❯</text></svg>') no-repeat center;
+  cursor: pointer;
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #999;
+  margin-top: 2px;
+}
+
+.location-input-wrapper { position: relative; }
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px 10px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.suggestions {
+  position: absolute;
+  top: 100%; left: 0; right: 0;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  max-height: 100px;
+  overflow-y: auto;
+  z-index: 10;
+  display: none;
+}
+
+.suggestions.show { display: block; }
+
+.suggestion-item {
+  padding: 7px 10px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.suggestion-item:hover { background: #f5f5f5; }
+
+/* --- 4. POPUP & NAVIGATION SYSTEM --- */
+.popup-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  border-radius: 12px;
+}
+
+.popup-overlay.show { display: flex; }
+
+.popup-content {
+  background: white;
+  border-radius: 12px;
+  padding: 18px;
+  width: 320px;
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.popup-body { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+.popup-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.popup-score {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #2196f3;
+  margin-bottom: 12px;
+}
+
+.popup-info {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.popup-info-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  padding: 4px 0;
+}
+
+.popup-info-label { color: #666; }
+.popup-info-value { font-weight: 600; }
+
+.popup-context {
+  background: #fff9e6;
+  border-left: 3px solid #ffc107;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  line-height: 1.4;
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Nav Arrows & Dots */
+.navigation-arrows {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.arrow-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  border: 2px solid #2196f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #2196f3;
+  font-weight: bold;
+}
+
+.arrow-btn.disabled { opacity: 0.3; cursor: not-allowed; border-color: #ccc; }
+
+.progress-dots { display: flex; justify-content: center; gap: 8px; }
+
+.progress-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e0e7ef;
+  transition: all 300ms ease;
+}
+
+.progress-dot.completed { background: #2ecc71; box-shadow: 0 0 6px rgba(46, 204, 113, 0.3); }
+.progress-dot.active { background: #2196f3; transform: scale(1.3); box-shadow: 0 0 8px rgba(33, 150, 243, 0.5); }
+
+/* --- 5. FINAL SUMMARY & BUTTONS --- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: auto 0 15px 0;
+}
+
+.stat-card {
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.stat-number { font-size: 22px; font-weight: 700; color: #333; }
+.stat-label { font-size: 11px; color: #666; }
+
+.btn {
+  width: 100%;
+  padding: 9px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 12px;
+}
+
+.btn-primary { background: linear-gradient(125deg, #1976d2, #5db5fd); color: white; }
+
+/* Utility Classes */
+.correct { color: #4caf50; }
+.incorrect { color: #f44336; }
+
+/* --- 1. Year Display (Cleaned up - no animations) --- */
+.year-display {
+    grid-column: 2;
+    font-size: 16px;
+    color: #2196f3;
+    font-weight: bold;
+    background: #e3f2fd;
+    padding: 2px 8px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+/* Change color only when dragging */
+input[type="range"]:active ~ .input-label .year-display {
+    background: #2196f3;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* --- 2. Slider Thumb Animation --- */
+
+/* Webkit (Chrome, Safari, Edge) */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 32px;
+    height: 20px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 20"><text x="0" y="15" fill="%232196f3" font-size="14" font-weight="bold">❮</text><circle cx="20" cy="10" r="6" fill="%232196f3"/><text x="32" y="15" fill="%232196f3" font-size="14" font-weight="bold">❯</text></svg>') no-repeat center;
+    cursor: pointer;
+    /* Ongoing animation */
+    animation: thumbBreathe 2s infinite ease-in-out;
+    transition: transform 0.2s ease;
+}
+
+/* Firefox */
+input[type="range"]::-moz-range-thumb {
+    width: 32px;
+    height: 20px;
+    border: none;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 20"><text x="0" y="15" fill="%232196f3" font-size="14" font-weight="bold">❮</text><circle cx="20" cy="10" r="6" fill="%232196f3"/><text x="32" y="15" fill="%232196f3" font-size="14" font-weight="bold">❯</text></svg>') no-repeat center;
+    cursor: pointer;
+    animation: thumbBreathe 2s infinite ease-in-out;
+    transition: transform 0.2s ease;
+}
+
+/* STOP animation and keep scale when dragging */
+input[type="range"]:active::-webkit-slider-thumb {
+    animation-play-state: paused;
+    transform: scale(1.3);
+}
+
+input[type="range"]:active::-moz-range-thumb {
+    animation-play-state: paused;
+    transform: scale(1.3);
+}
+
+/* --- 3. Animation Definition --- */
+@keyframes thumbBreathe {
+    0%, 100% { 
+        transform: scale(1); 
+        filter: drop-shadow(0 0 2px rgba(33, 150, 243, 0.2));
+    }
+    50% { 
+        transform: scale(1.15); 
+        filter: drop-shadow(0 0 6px rgba(33, 150, 243, 0.5));
+    }
+}
+
+@media (max-width: 420px) {
+  .container {
+    height: 500px;
+    width: 300px;
+    border-radius: 12px;
+    font-size: 10pt;
+  }
+  
+  /* .famous-controls {
+    flex-wrap: wrap;
+  }
+
+.famous-popup .msg {
+  font-size: 24px;
+  margin-bottom: 12px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.famous-popup .popup-image {
+  width: 200px;
+  height: 100px;
+}
+
+.famous-popup .score-total {
+  font-size: 20px;
+}
+
+.famous-hints li.revealed {
+  animation: fadeIn 400ms ease;
+  font-size: 8pt;
+}
+
+/* --- 2. Slider Thumb Animation --- */
+
+/* Webkit (Chrome, Safari, Edge) */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 22px;
+    height: 11px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 20"><text x="0" y="15" fill="%232196f3" font-size="14" font-weight="bold">❮</text><circle cx="20" cy="10" r="6" fill="%232196f3"/><text x="32" y="15" fill="%232196f3" font-size="14" font-weight="bold">❯</text></svg>') no-repeat center;
+    cursor: pointer;
+    /* Ongoing animation */
+    animation: thumbBreathe 2s infinite ease-in-out;
+    transition: transform 0.2s ease;
+}
+
+/* Firefox */
+input[type="range"]::-moz-range-thumb {
+    width: 22px;
+    height: 11px;
+    border: none;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 20"><text x="0" y="15" fill="%232196f3" font-size="14" font-weight="bold">❮</text><circle cx="20" cy="10" r="6" fill="%232196f3"/><text x="32" y="15" fill="%232196f3" font-size="14" font-weight="bold">❯</text></svg>') no-repeat center;
+    cursor: pointer;
+    animation: thumbBreathe 2s infinite ease-in-out;
+    transition: transform 0.2s ease;
+}
+
+/* STOP animation and keep scale when dragging */
+input[type="range"]:active::-webkit-slider-thumb {
+    animation-play-state: paused;
+    transform: scale(1.2);
+}
+
+input[type="range"]:active::-moz-range-thumb {
+    animation-play-state: paused;
+    transform: scale(1.2);
+}
+
+.input-label {
+  font-size: 10px;
+}
+
+.year-display {
+  grid-column: 2;
+  font-size: 13px;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* Nav Arrows & Dots */
+.navigation-arrows {
+  margin-bottom: 6px;
+}
+
+.arrow-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  border: 2px solid #2196f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #2196f3;
+  font-weight: bold;
+}
+
+.progress-dots { display: flex; justify-content: center; gap: 8px; }
+
+.progress-dot {
+  width: 5px;
+  height: 5px;
+}
+
+.photo-container h1 {
+  padding: 8px 6px;
+  font-size: 14px;
+}
+
+.popup-content {
+  border-radius: 8px;
+  padding: 9px;
+  width: 200px;
+  height: 100px;
+}
+
+.popup-body { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+.popup-title {
+  font-size: 8px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.popup-score {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #2196f3;
+  margin-bottom: 12px;
+}
+
+.popup-info {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.popup-info-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 8px;
+  padding: 4px 0;
+}
+
+.popup-context {
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 8px;
+  line-height: 1.4;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.score-display {
+  position: relative;
+  left: 220px;
+}
+
+}
