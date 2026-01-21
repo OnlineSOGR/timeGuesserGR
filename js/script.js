@@ -445,7 +445,7 @@ function nextRound() {
     <div class="input-group">
         <div class="input-label">📍 Ort?</div>
         <div class="location-input-wrapper">
-            <input type="text" id="locationInput" placeholder="Stadt eingeben...">
+            <input type="text" id="locationInput" placeholder="Ort eingeben...">
             <div class="suggestions" id="suggestions"></div>
         </div>
     </div>
@@ -628,7 +628,7 @@ function restartGame() {
     <div class="input-group">
         <div class="input-label">📍 Ort?</div>
         <div class="location-input-wrapper">
-            <input type="text" id="locationInput" placeholder="Stadt eingeben...">
+            <input type="text" id="locationInput" placeholder="Ort eingeben...">
             <div class="suggestions" id="suggestions"></div>
         </div>
     </div>
