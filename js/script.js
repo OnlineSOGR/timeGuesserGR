@@ -4,7 +4,7 @@ const events = [
   {
     image: "img/sunniberg.jpg",
     year: 2005,
-    location: "Klosters",
+    location: "Klosters-Serneus",
     title: "Eröffnung der Sunnibergbrücke",
     context:
       "Am 9. Dezember 2005 wurde die Sunnibergbrücke von Heinz Dicht, vom damaligen Prinzen Charles, Moritz Leuenberger und Stefan Engler eröffnet.",
