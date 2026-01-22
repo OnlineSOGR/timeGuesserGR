@@ -340,8 +340,8 @@ function submitGuess() {
   const locationCorrect =
     guessedLocation.toLowerCase() === event.location.toLowerCase();
 
-  const yearScore = Math.max(0, 5000 - yearDiff * 100);
-  const locationScore = locationCorrect ? 5000 : 0;
+  const yearScore = Math.max(0, 500 - yearDiff * 10);
+  const locationScore = locationCorrect ? 500 : 0;
   const roundScore = yearScore + locationScore;
 
   results.push({
@@ -374,7 +374,7 @@ function showResult(yearDiff, locationCorrect, event, score) {
                         <div class="popup-info-row">
                             <span class="popup-info-label">Jahre daneben:</span>
                             <span class="popup-info-value ${
-                              yearDiff <= 5 ? "correct" : "incorrect"
+                              yearDiff <= 10 ? "correct" : "incorrect"
                             }">${yearDiff} Jahre</span>
                         </div>
                         <div class="popup-info-row">
@@ -495,7 +495,7 @@ function showResultSlide(slideIndex) {
   let contentHTML = "";
 
   if (isFinalSummary) {
-    const correctYears = results.filter((r) => r.yearDiff <= 5).length;
+    const correctYears = results.filter((r) => r.yearDiff <= 10).length;
     const correctLocations = results.filter((r) => r.locationCorrect).length;
 
     contentHTML = `
@@ -505,11 +505,11 @@ function showResultSlide(slideIndex) {
                         
                         <div class="stats-grid">
                             <div class="stat-card">
-                                <div class="stat-number">${correctYears}/5</div>
-                                <div class="stat-label">Jahre korrekt<br>(±5 Jahre)</div>
+                                <div class="stat-number">${correctYears}/10</div>
+                                <div class="stat-label">Jahre korrekt<br>(±10 Jahre)</div>
                             </div>
                             <div class="stat-card">
-                                <div class="stat-number">${correctLocations}/5</div>
+                                <div class="stat-number">${correctLocations}/10</div>
                                 <div class="stat-label">Orte korrekt</div>
                             </div>
                         </div>
@@ -527,7 +527,7 @@ function showResultSlide(slideIndex) {
                         <div class="popup-info-row">
                             <span class="popup-info-label">Jahre daneben:</span>
                             <span class="popup-info-value ${
-                              result.yearDiff <= 5 ? "correct" : "incorrect"
+                              result.yearDiff <= 10 ? "correct" : "incorrect"
                             }">${result.yearDiff} Jahre</span>
                         </div>
                         <div class="popup-info-row">
