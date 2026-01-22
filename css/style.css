@@ -432,7 +432,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
   .progress-container {
-    transform: rotate(-90deg);
+    transform: rotate(270deg);
   }
 
 /* STOP animation and keep scale when dragging */
@@ -467,7 +467,7 @@ input[type="range"]:active::-moz-range-thumb {
   }
 
   .progress-container {
-    transform: rotate(-90deg);
+    transform: rotate(270deg);
   }
   
   /* .famous-controls {
