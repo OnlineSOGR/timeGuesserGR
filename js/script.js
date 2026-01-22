@@ -47,12 +47,12 @@ const events = [
     isPortrait: true,
   },
   {
-    image: "img/",
-    year: 1994,
-    location: "",
-    title: "",
+    image: "img/chur2",
+    year: 2007,
+    location: "Chur",
+    title: "HR Giger in einer Bündner Ausstellung",
     context:
-      "",
+      "Der Churer Künstler HR Giger in seiner Ausstellung 'Das Schaffen vor Alien' im Kunstmuseum in Chur.",
     isPortrait: true,
   },
   {
