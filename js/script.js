@@ -38,7 +38,7 @@ const events = [
     isPortrait: true,
   },
   {
-    image: "img/ilanz2.jpg",
+    image: "img/ilanz.jpg",
     year: 1955,
     location: "Ilanz",
     title: "Ford-Autos in der Surselva",
