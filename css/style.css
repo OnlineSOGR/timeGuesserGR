@@ -431,6 +431,10 @@ input[type="range"]::-moz-range-thumb {
     transition: transform 0.2s ease;
 }
 
+  .progress-container {
+    transform: rotate(90deg);
+  }
+
 /* STOP animation and keep scale when dragging */
 input[type="range"]:active::-webkit-slider-thumb {
     animation-play-state: paused;
@@ -460,6 +464,10 @@ input[type="range"]:active::-moz-range-thumb {
     width: 300px;
     border-radius: 12px;
     font-size: 10pt;
+  }
+
+  .progress-container {
+    transform: rotate(90deg);
   }
   
   /* .famous-controls {
