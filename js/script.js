@@ -76,8 +76,8 @@ const events = [
   {
     image: "img/sanbernardino.jpg",
     year: 1965,
-    location: "",
-    title: "",
+    location: "San Bernardino",
+    title: "Durchschlag des San-Bernardino-Strassentunnels",
     context:
       "Am 10. April 1965 haben die Mineure im San-Bernardino-Strassentunnel den Durchschlag geschafft (Südportal, Eintreffen der Equipe Nord).",
     isPortrait: true,
@@ -199,6 +199,7 @@ const cities = [
   "Salouf",
   "Samedan",
   "Samnaun",
+  "San Bernardino",
   "San Vittore",
   "Savognin",
   "S-chanf",
