@@ -654,7 +654,7 @@ function toggleZoom() {
 
   if (isZoomed) {
     photo.classList.add("zoomed");
-    btn.textContent = "🔍 Zoom Out";
+    btn.textContent = "🔍";
     photo.addEventListener("mousemove", moveZoom);
   } else {
     resetZoomEffect();
