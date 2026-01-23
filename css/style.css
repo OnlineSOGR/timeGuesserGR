@@ -673,7 +673,7 @@ input[type="range"]:active::-moz-range-thumb {
   overflow-y: auto;
 }
 
-.score-display {
+/* .score-display {
   position: relative;
   left: 120px;
   font-size: 8px;
@@ -686,10 +686,39 @@ input[type="range"]:active::-moz-range-thumb {
 
 .zoom-btn {
     font-size: 8px;
-    background: rgba(0, 0, 0, 0.7); /* Etwas dunkler für bessere Lesbarkeit auf kleinem Raum */
-  }
+    background: rgba(0, 0, 0, 0.7); /* Etwas dunkler für bessere Lesbarkeit auf kleinem Raum
+  } */
 
   /* Auf Mobile ist 250% oft sehr viel, 200% reicht meistens */
+  /* .photo-container.zoomed,
+  .photo-container.portrait-mode.zoomed::after {
+    background-size: 200% !important;
+  } */
+
+  .score-display {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    left: auto; /* Clears previous manual left offset */
+    font-size: 9px;
+    padding: 3px 10px;
+  }
+
+  .round-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    font-size: 9px;
+    padding: 3px 10px;
+  }
+
+  .zoom-btn {
+    bottom: 8px;
+    font-size: 9px;
+    padding: 4px 10px;
+  }
+  
+  /* Resetting the portrait mode zoom factor for mobile */
   .photo-container.zoomed,
   .photo-container.portrait-mode.zoomed::after {
     background-size: 200% !important;
