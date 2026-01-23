@@ -642,8 +642,6 @@ function restartGame() {
   setupEventListeners();
 }
 
-initGame();
-
 // Variable für den Zoom-Status (global oder am Anfang der Datei)
 let isZoomed = false;
 
@@ -704,3 +702,5 @@ function updateDisplay() {
   document.getElementById("currentRound").textContent = currentRound + 1;
   document.getElementById("currentScore").textContent = totalScore;
 }
+
+initGame();
