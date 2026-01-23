@@ -74,12 +74,12 @@ const events = [
     isPortrait: true,
   },
   {
-    image: "img/",
-    year: 1994,
+    image: "img/sanbernardino.jpg",
+    year: 1965,
     location: "",
     title: "",
     context:
-      "",
+      "Am 10. April 1965 haben die Mineure im San-Bernardino-Strassentunnel den Durchschlag geschafft (Südportal, Eintreffen der Equipe Nord).",
     isPortrait: true,
   },
   {
