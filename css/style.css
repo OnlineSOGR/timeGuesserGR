@@ -714,7 +714,6 @@ input[type="range"]:active::-moz-range-thumb {
 
   .zoom-btn {
     background: rgba(0, 0, 0, 0.7); /* Etwas dunkler für bessere Lesbarkeit auf kleinem Raum*/
-    bottom: 8px;
     font-size: 9px;
   }
   
