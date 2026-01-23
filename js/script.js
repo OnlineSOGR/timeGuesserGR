@@ -65,12 +65,12 @@ const events = [
     isPortrait: true,
   },
   {
-    image: "img/",
-    year: 1994,
-    location: "",
-    title: "",
+    image: "img/freestyle.jpg",
+    year: 1976,
+    location: "St. Moritz",
+    title: "Erster Ski-Freestyle-Wettbewerb",
     context:
-      "",
+      "In St. Moritz fand am 1. März 1976 zur Förderung des Freestyle-Skisports ein Pionierwettbewerb statt. Die FIS erkannte Freestyle-Skiing erst 1979 offiziell an.",
     isPortrait: true,
   },
   {
