@@ -488,7 +488,7 @@ input[type="range"]:active::-moz-range-thumb {
 /* Der schwebende Button - Standard (Desktop) */
 .zoom-btn {
   position: absolute;
-  top: 10px;
+  top: 6px;
   left: 50%; /* Startpunkt bei 50% von links */
   transform: translateX(-50%); /* Schiebt den Button um die eigene Hälfte nach links zurück */
   z-index: 100;
