@@ -676,6 +676,12 @@ input[type="range"]:active::-moz-range-thumb {
 .score-display {
   position: relative;
   left: 180px;
+  font-size: 8px;
+
+}
+
+.round-badge {
+  font-size: 8px;
 }
 
 .zoom-btn {
