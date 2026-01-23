@@ -458,6 +458,59 @@ input[type="range"]:active::-moz-range-thumb {
     }
 }
 
+/* --- OPTIMIERTE ZOOM LOGIK --- */
+
+.photo-container {
+  position: relative;
+  overflow: hidden; 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s ease-out;
+  /* border-radius: 12px; */
+  z-index: 1;
+}
+
+/* Zoom für normale Bilder (Landscape) */
+.photo-container.zoomed {
+  background-size: 250% !important; /* Faktor 2.5 */
+  cursor: move;
+}
+
+/* Zoom für Portrait-Modus (Das scharfe Bild im ::after) */
+.photo-container.portrait-mode.zoomed::after {
+  background-size: 250% !important;
+  /* Wir nutzen hier background-position: inherit, 
+     damit das JS-Move-Event auch das Pseudo-Element steuert */
+  background-position: inherit; 
+}
+
+/* Der schwebende Button - Standard (Desktop) */
+.zoom-btn {
+  position: absolute;
+  top: 10px;
+  left: 50%; /* Startpunkt bei 50% von links */
+  transform: translateX(-50%); /* Schiebt den Button um die eigene Hälfte nach links zurück */
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 12px;
+  backdrop-filter: blur(4px);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.zoom-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
 @media (max-width: 420px) {
   .container {
     height: 500px;
@@ -639,57 +692,4 @@ input[type="range"]:active::-moz-range-thumb {
     background-size: 200% !important;
   }
 
-}
-
-/* --- OPTIMIERTE ZOOM LOGIK --- */
-
-.photo-container {
-  position: relative;
-  overflow: hidden; 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: background-size 0.3s ease-out;
-  /* border-radius: 12px; */
-  z-index: 1;
-}
-
-/* Zoom für normale Bilder (Landscape) */
-.photo-container.zoomed {
-  background-size: 250% !important; /* Faktor 2.5 */
-  cursor: move;
-}
-
-/* Zoom für Portrait-Modus (Das scharfe Bild im ::after) */
-.photo-container.portrait-mode.zoomed::after {
-  background-size: 250% !important;
-  /* Wir nutzen hier background-position: inherit, 
-     damit das JS-Move-Event auch das Pseudo-Element steuert */
-  background-position: inherit; 
-}
-
-/* Der schwebende Button - Standard (Desktop) */
-.zoom-btn {
-  position: absolute;
-  top: 10px;
-  left: 50%; /* Startpunkt bei 50% von links */
-  transform: translateX(-50%); /* Schiebt den Button um die eigene Hälfte nach links zurück */
-  z-index: 100;
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 6px 12px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 12px;
-  backdrop-filter: blur(4px);
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.zoom-btn:hover {
-  background: rgba(0, 0, 0, 0.8);
 }
