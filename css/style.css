@@ -697,7 +697,6 @@ input[type="range"]:active::-moz-range-thumb {
 
   .score-display {
     position: absolute;
-    top: 8px;
     right: 8px;
     left: auto; /* Clears previous manual left offset */
     font-size: 9px;
