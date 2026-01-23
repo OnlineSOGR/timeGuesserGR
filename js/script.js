@@ -82,13 +82,13 @@ const events = [
       "Am 10. April 1965 haben die Mineure im San-Bernardino-Strassentunnel den Durchschlag geschafft (Südportal, Eintreffen der Equipe Nord).",
     isPortrait: true,
   },
-  {
-    image: "img/",
+{
+    image: "img/vereina.jpg",
     year: 1994,
-    location: "",
-    title: "",
+    location: "Klosters-Serneus",
+    title: "Durchschlag am Vereina",
     context:
-      "",
+      "Nach drei Jahren Bohrarbeit erfolgte am 30. November 1994 der Durchschlag des Vereinatunnels, der heute das Prättigau mit dem Engadin verbindet.",
     isPortrait: true,
   },
 ];
