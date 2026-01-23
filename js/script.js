@@ -84,11 +84,11 @@ const events = [
   },
 {
     image: "img/vereina.jpg",
-    year: 1994,
+    year: 1997,
     location: "Klosters-Serneus",
     title: "Durchschlag am Vereina",
     context:
-      "Robert Giacometti, Gemeindepräsident von Lavin (links), und Fritz Felix, Gemeindepräsident von Susch (rechts) und Mineure feiern den Durchstich des Vereinatunnels am 26. März 1997.",
+      "Am 26. März 1997 fanden die Durchschlagsfeierlichkeiten vor dem Vereinatunnel statt.",
     isPortrait: true,
   },
 ];
