@@ -61,7 +61,7 @@ body {
   z-index: 1;
 }
 
-.round-badge {
+/* .round-badge {
   position: absolute;
   top: 8px;
   left: 8px;
@@ -72,6 +72,20 @@ body {
   font-weight: 600;
   color: #333;
   z-index: 2;
+} */
+
+.round-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #333;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .header {
@@ -86,7 +100,7 @@ body {
   display: none; /* Hidden as per previous instruction */
 }
 
-.score-display {
+/* .score-display {
   color: #2196f3;
   font-weight: 600;
   margin-top: 10px;
@@ -97,6 +111,21 @@ body {
   font-size: 11px;
   position: relative;
   left: 400px;
+} */
+
+.score-display {
+  position: absolute;
+  top: 10px;
+  right: 10px; /* Pinned to the right */
+  background: #2196f3; /* Brand blue for contrast */
+  color: white;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 11px;
+  font-weight: 600;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  /* Removed manual relative/left positioning */
 }
 
 #quelle {
@@ -488,27 +517,29 @@ input[type="range"]:active::-moz-range-thumb {
 /* Der schwebende Button - Standard (Desktop) */
 .zoom-btn {
   position: absolute;
-  top: 6px;
-  left: 50%; /* Startpunkt bei 50% von links */
-  transform: translateX(-50%); /* Schiebt den Button um die eigene Hälfte nach links zurück */
+  bottom: 10px; /* Centered at the bottom */
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 100;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.65);
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 6px 8px;
+  padding: 6px 14px;
   border-radius: 20px;
   cursor: pointer;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 11px;
   backdrop-filter: blur(4px);
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
   gap: 5px;
+  white-space: nowrap;
 }
 
 .zoom-btn:hover {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.85);
+  transform: translateX(-50%) scale(1.05);
 }
 
 @media (max-width: 420px) {
