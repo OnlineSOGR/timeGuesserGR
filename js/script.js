@@ -667,7 +667,7 @@ function resetZoomEffect() {
   
   isZoomed = false;
   photo.classList.remove("zoomed");
-  if (btn) btn.textContent = "🔍 Zoom In";
+  if (btn) btn.textContent = "🔍 Zoom";
   photo.style.backgroundPosition = "center";
   photo.removeEventListener("mousemove", moveZoom);
 }
