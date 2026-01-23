@@ -672,7 +672,8 @@ input[type="range"]:active::-moz-range-thumb {
 .zoom-btn {
   position: absolute;
   top: 10px;
-  right: 10px;
+  left: 50%; /* Startpunkt bei 50% von links */
+  transform: translateX(-50%); /* Schiebt den Button um die eigene Hälfte nach links zurück */
   z-index: 100;
   background: rgba(0, 0, 0, 0.6);
   color: white;
