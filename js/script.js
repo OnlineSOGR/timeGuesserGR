@@ -47,7 +47,7 @@ const events = [
     isPortrait: true,
   },
   {
-    image: "img/chur2",
+    image: "img/chur2.jpg",
     year: 2007,
     location: "Chur",
     title: "HR Giger in einer Bündner Ausstellung",
@@ -56,12 +56,12 @@ const events = [
     isPortrait: true,
   },
   {
-    image: "img/",
-    year: 1994,
-    location: "",
-    title: "",
+    image: "img/stmoritz2.jpg",
+    year: 1948,
+    location: "St. Moritz",
+    title: "Olympische Winterspiele in Graubünden",
     context:
-      "",
+      "Die kanadische Eiskunstläuferin Barbara Ann Scott bei den Olympischen Winterspielen in St. Moritz während des Pflichtprogramms (1948).",
     isPortrait: true,
   },
   {
