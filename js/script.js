@@ -88,7 +88,7 @@ const events = [
     location: "Klosters-Serneus",
     title: "Durchschlag am Vereina",
     context:
-      "Nach drei Jahren Bohrarbeit erfolgte am 30. November 1994 der Durchschlag des Vereinatunnels, der heute das Prättigau mit dem Engadin verbindet.",
+      "Robert Giacometti, Gemeindepräsident von Lavin (links), und Fritz Felix, Gemeindepräsident von Susch (rechts) und Mineure feiern den Durchstich des Vereinatunnels am 26. März 1997.",
     isPortrait: true,
   },
 ];
