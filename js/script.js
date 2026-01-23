@@ -261,10 +261,10 @@ let totalScore = 0;
 let results = [];
 let currentResultSlide = 0;
 
-function initGame() {
-  updateDisplay();
-  setupEventListeners();
-}
+// function initGame() {
+//   updateDisplay();
+//   setupEventListeners();
+// }
 
 function setupEventListeners() {
   const yearSlider = document.getElementById("yearSlider");
@@ -701,6 +701,11 @@ function updateDisplay() {
 
   document.getElementById("currentRound").textContent = currentRound + 1;
   document.getElementById("currentScore").textContent = totalScore;
+}
+
+function initGame() {
+   updateDisplay();
+   setupEventListeners();
 }
 
 initGame();
