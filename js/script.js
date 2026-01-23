@@ -642,3 +642,64 @@ function restartGame() {
 }
 
 initGame();
+
+// Variable für den Zoom-Status (global oder am Anfang der Datei)
+let isZoomed = false;
+
+// 1. DIESE FUNKTIONEN GANZ UNTEN HINZUFÜGEN
+function toggleZoom() {
+  const photo = document.getElementById("photoContainer");
+  const btn = document.getElementById("zoomBtn");
+  
+  isZoomed = !isZoomed;
+
+  if (isZoomed) {
+    photo.classList.add("zoomed");
+    btn.textContent = "🔍 Zoom Out";
+    photo.addEventListener("mousemove", moveZoom);
+  } else {
+    resetZoomEffect();
+  }
+}
+
+function resetZoomEffect() {
+  const photo = document.getElementById("photoContainer");
+  const btn = document.getElementById("zoomBtn");
+  
+  isZoomed = false;
+  photo.classList.remove("zoomed");
+  if (btn) btn.textContent = "🔍 Zoom In";
+  photo.style.backgroundPosition = "center";
+  photo.removeEventListener("mousemove", moveZoom);
+}
+
+function moveZoom(e) {
+  if (!isZoomed) return;
+  const photo = document.getElementById("photoContainer");
+  const rect = photo.getBoundingClientRect();
+  
+  // Berechnet die Position der Maus im Bild in Prozent
+  const x = ((e.clientX - rect.left) / rect.width) * 100;
+  const y = ((e.clientY - rect.top) / rect.height) * 100;
+  
+  photo.style.backgroundPosition = `${x}% ${y}%`;
+}
+
+// 2. ERWEITERE DEINE BESTEHENDE updateDisplay FUNKTION
+// Füge am Anfang der Funktion den Reset-Befehl ein:
+function updateDisplay() {
+  resetZoomEffect(); // <--- Diesen Aufruf hier einfügen!
+
+  const event = events[currentRound];
+  const photoContainer = document.getElementById("photoContainer");
+  photoContainer.style.backgroundImage = `url(${event.image})`;
+
+  if (event.isPortrait) {
+    photoContainer.classList.add("portrait-mode");
+  } else {
+    photoContainer.classList.remove("portrait-mode");
+  }
+
+  document.getElementById("currentRound").textContent = currentRound + 1;
+  document.getElementById("currentScore").textContent = totalScore;
+}
