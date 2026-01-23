@@ -85,7 +85,7 @@ const events = [
 {
     image: "img/vereina.jpg",
     year: 1997,
-    location: "Klosters-Serneus",
+    location: "Klosters-Selfranga",
     title: "Durchschlag am Vereina",
     context:
       "Am 26. März 1997 fanden die Durchschlagsfeierlichkeiten vor dem Vereinatunnel statt.",
@@ -149,6 +149,7 @@ const cities = [
   "Jenaz",
   "Jenins",
   "Klosters-Serneus",
+  "Klosters-Selfranga",
   "Küblis",
   "La Punt-Chamues-ch",
   "Laax",
