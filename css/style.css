@@ -675,7 +675,7 @@ input[type="range"]:active::-moz-range-thumb {
 
 .score-display {
   position: relative;
-  left: 150px;
+  left: 120px;
   font-size: 8px;
 
 }
