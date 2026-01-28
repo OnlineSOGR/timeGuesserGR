@@ -20,6 +20,15 @@ const events = [
     isPortrait: true,
   },
   {
+    image: "img/vereina.jpg",
+    year: 1997,
+    location: "Klosters-Selfranga",
+    title: "Durchschlag am Vereina",
+    context:
+      "Am 26. März 1997 fanden die Durchschlagsfeierlichkeiten vor dem Vereinatunnel statt.",
+    isPortrait: true,
+  },
+  {
     image: "img/marmorera.jpg",
     year: 1950,
     location: "Marmorera",
@@ -52,7 +61,7 @@ const events = [
     location: "Chur",
     title: "HR Giger in einer Bündner Ausstellung",
     context:
-      "Der Churer Künstler HR Giger in seiner Ausstellung 'Das Schaffen vor Alien' im Kunstmuseum in Chur.",
+      "Der Churer Künstler HR Giger in seiner Ausstellung 'Das Schaffen vor Alien' im Kunstmuseum in Chur (2007).",
     isPortrait: true,
   },
   {
@@ -80,15 +89,6 @@ const events = [
     title: "Durchschlag des San-Bernardino-Strassentunnels",
     context:
       "Am 10. April 1965 haben die Mineure im San-Bernardino-Strassentunnel den Durchschlag geschafft (Südportal, Eintreffen der Equipe Nord).",
-    isPortrait: true,
-  },
-{
-    image: "img/vereina.jpg",
-    year: 1997,
-    location: "Klosters-Selfranga",
-    title: "Durchschlag am Vereina",
-    context:
-      "Am 26. März 1997 fanden die Durchschlagsfeierlichkeiten vor dem Vereinatunnel statt.",
     isPortrait: true,
   },
 ];
