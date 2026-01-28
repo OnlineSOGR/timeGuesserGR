@@ -615,7 +615,7 @@ input[type="range"]:active::-moz-range-thumb {
 }
 
 .input-label {
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .year-display {
@@ -623,6 +623,8 @@ input[type="range"]:active::-moz-range-thumb {
   font-size: 13px;
   padding: 2px 8px;
   border-radius: 4px;
+  left: 10px;
+  position: relative;
 }
 
 /* Nav Arrows & Dots */
